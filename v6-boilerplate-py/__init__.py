@@ -7,12 +7,7 @@ node just the same as any other method.
 When a return statement is reached the result is send to the central
 server after encryption.
 """
-import os
-import sys
 import time
-import json
-import pandas
-
 from vantage6.tools.util import info, warn
 
 
@@ -57,7 +52,6 @@ def master(client, data, *args, **kwargs):
     info("Obtaining results")
     results = client.get_results(task_id=task.get("id"))
     print(results)
-    # results = [json.loads(result.get("result")) for result in results]
 
     info("master algorithm complete")
 

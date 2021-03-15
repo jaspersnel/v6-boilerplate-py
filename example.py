@@ -22,5 +22,5 @@ results = client.get_results(task.get("id"))
 print(results)
 
 master_task = client.create_new_task({"master": 1, "method":"master"}, [ids[0]])
-results = client.get_results(task.get("id"))
+results = client.get_results(master_task.get("id"))
 print(results)

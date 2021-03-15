@@ -1,5 +1,5 @@
 from vantage6.tools.mock_client import ClientMockProtocol
-from vantage6.tools.container_client import ClientContainerProtocol
+#from vantage6.client import ClientContainerProtocol
 
 
 ## Mock client

@@ -14,7 +14,7 @@ This algoithm is part of the [vantage6](https://vantage6.ai) solution. Vantage6 
 First clone the repository.
 ```bash
 # Clone this repository
-git clone https://github.com/IKNL/v6-boilerplate-py
+git clone https://github.com/jaspersnel/v6-boilerplate-py
 ```
 
 Rename the contained v6-boilerplate-py directory to something that fits your algorithm, we use the convention `v6-{name}-{langauge}`. Then you can edit the following files:

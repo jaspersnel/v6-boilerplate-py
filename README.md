@@ -61,7 +61,21 @@ python test.py
 ```
 
 ## Publishing for real-world use
-TODO
+
+### Building the image
+If everything has been entered correctly in the setup stage, you should only have to build the image and push it to docker hub to be able to use it:
+
+```bash
+docker build -t your_username/algorithm_name .
+docker push your_username/algorithm_name
+```
+
+### Running the train
+At this stage much will depend on how the infrastructure has been set up - the correct URLs have to be entered and login details need to be correct. As an example, the `run.py` file has been provided. This has been taken from [this repository](https://gitlab.com/UM-CDS/pht/vantage6-docker-demo/-/blob/master/researcher/python/run.py), which also contains an example infrastructure that can be used to simulate a real-world scenario (it also works with the example `method.py` file provided). The details in the `run.py` file are in place to use this sample infrastructure and have to be changed for a production environment. The main changes that will have to be made are the `image` name and any `(kw)args`. Then simply run the file using:
+
+```bash
+python run.py
+```
 
 ## Read more
 See the [documentation](https://docs.vantage6.ai/) for detailed instructions on how to install and use the server and nodes.

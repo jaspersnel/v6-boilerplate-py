@@ -8,6 +8,8 @@ When a return statement is reached the result is send to the central
 server after encryption.
 """
 import time
+
+import pandas as pd
 from vantage6.tools.util import info, warn
 
 
@@ -53,19 +55,30 @@ def master(client, data, *args, **kwargs):
     results = client.get_results(task_id=task.get("id"))
     print(results)
 
+    # combine all results into one dataframe
+    dfs = [pd.DataFrame.from_dict(res) for res in results]
+    res_df = pd.concat(dfs, keys=range(len(results)))
+    
+    # Calculate overall mean over all nodes
+    res_df['total_mean'] = res_df['count'] * res_df['mean']
+    res_total = pd.DataFrame(res_df.groupby(level=1).sum())
+    res_total['mean'] = res_total['total_mean'] / res_total['count']
+
     info("master algorithm complete")
 
     # return all the messages from the nodes
-    return results
+    return res_total['mean'].to_dict()
 
 def RPC_some_example_method(data, *args, **kwargs):
     """Some_example_method.
 
-    loads the dataframe and reports if it succeeded by returning a
-    boolean value.
+    Do computation on data local to this node and send it back to 
+    central server for further processing.
+
+    In this case, take mean `Age` on groups of different `Sex`
     """
     info("Computing mean age for males and females")
-    result = data[["Sex", "Age"]].groupby("Sex").mean()
+    result = data.groupby("Sex").Age.aggregate(['count', 'mean'])
 
     # what you return here is send to the central server. So make sure
     # no privacy sensitive data is shared

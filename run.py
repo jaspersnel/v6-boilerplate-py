@@ -26,12 +26,12 @@ task = client.post_task(
 )
 
 print("Wait and fetch results")
-res = client.get_results(task_id=task.get("id"))
+res = client.result.get(id_=task.get("results")[0]['id'])
 attempts=1
-while((res[0]["result"] == None) and attempts < 7):
+while((res["result"] == None) and attempts < 7):
     print("waiting...")
     time.sleep(5)
-    res = client.get_results(task_id=task.get("id"))
+    res = client.result.get(id_=task.get("results")[0]['id'])
     attempts += 1
 
-print(res[0]["result"])
+print(res)

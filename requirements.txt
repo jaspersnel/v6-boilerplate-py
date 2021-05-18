@@ -2,3 +2,4 @@ vantage6==2.1.1
 vantage6-common==2.1.0
 vantage6-client==2.1.0
 pandas
+sparqlwrapper

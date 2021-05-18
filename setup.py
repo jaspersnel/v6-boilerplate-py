@@ -25,7 +25,8 @@ setup(
     python_requires='>=3.6',
     install_requires=[
         'vantage6-client==2.1.0',
-        'pandas'
+        'pandas',
+        'sparqlwrapper',
     ]
     # ,
     # extras_require={

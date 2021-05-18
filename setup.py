@@ -22,7 +22,7 @@ setup(
     long_description_content_type='text/markdown',
     url='https://github.com/jaspersnel/v6-boilerplate-py/tree/rdf',
     packages=find_packages(),
-    python_requires='>=3.6',
+    python_requires='>=3.7',
     install_requires=[
         'vantage6-client==2.1.0',
         'pandas',

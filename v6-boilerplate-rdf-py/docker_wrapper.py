@@ -75,18 +75,15 @@ def docker_wrapper(module: str):
         token = fp.read().strip()
 
     # Check if a sparql query has been set in environment
-    if 'SPARQL_QUERY' in os.environ:
-        query = os.getenv('SPARQL_QUERY')
-    else:
-        info("No query set in environment, trying to read from file")
-        query = pkg_resources.read_text(__package__, 'query.sparql')
+    info("Trying to read query from file")
+    query = pkg_resources.read_text(__package__, 'query.sparql')
 
     info(f"Using query \n{query}")
 
     info(f"Trying to execute query against {os.environ['DATABASE_URI']}")
     
     # Helper for queries
-    qe = QueryEngine(os.environ['DATABASE_URI'])
+    qe = QueryEngine(os.environ['SPARQL_ENDPOINT'])
     db = qe.get_sparql_dataframe(query)
 
     # make the actual call to the method/function

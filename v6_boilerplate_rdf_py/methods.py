@@ -55,19 +55,8 @@ def master(client, data, *args, **kwargs):
     results = client.get_results(task_id=task.get("id"))
     print(results)
 
-    # combine all results into one dataframe
-    dfs = [pd.DataFrame.from_dict(res) for res in results]
-    res_df = pd.concat(dfs, keys=range(len(results)))
-    
-    # Calculate overall mean over all nodes
-    res_df['total_mean'] = res_df['count'] * res_df['mean']
-    res_total = pd.DataFrame(res_df.groupby(level=1).sum())
-    res_total['mean'] = res_total['total_mean'] / res_total['count']
+    return sum(results)
 
-    info("master algorithm complete")
-
-    # return all the messages from the nodes
-    return res_total['mean'].to_dict()
 
 def RPC_some_example_method(data, *args, **kwargs):
     """Some_example_method.
@@ -77,9 +66,9 @@ def RPC_some_example_method(data, *args, **kwargs):
 
     In this case, take mean `Age` on groups of different `Sex`
     """
-    info("Computing mean age for males and females")
-    result = data.groupby("Sex").Age.aggregate(['count', 'mean'])
+    info("Computing length of data")
+    result = len(data)
 
     # what you return here is send to the central server. So make sure
     # no privacy sensitive data is shared
-    return result.to_dict()
+    return result

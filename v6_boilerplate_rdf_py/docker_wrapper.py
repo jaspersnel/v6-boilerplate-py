@@ -80,7 +80,7 @@ def docker_wrapper(module: str):
 
     info(f"Using query \n{query}")
 
-    info(f"Trying to execute query against {os.environ['DATABASE_URI']}")
+    info(f"Trying to execute query against {os.environ['SPARQL_ENDPOINT']}")
     
     # Helper for queries
     qe = QueryEngine(os.environ['SPARQL_ENDPOINT'])

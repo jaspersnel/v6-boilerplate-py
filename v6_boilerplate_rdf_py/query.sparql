@@ -1,0 +1,4 @@
+SELECT ?p ?s ?o 
+WHERE { 
+	?p ?s ?o .
+} 

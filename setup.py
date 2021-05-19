@@ -13,9 +13,11 @@ with open(path.join(here, 'README.md'), encoding='utf-8') as f:
 # with open(path.join(here, 'vantage6', 'tools', 'VERSION')) as fp:
 #     __version__ = fp.read()
 
+PACKAGE_NAME = 'v6_boilerplate_rdf_py'
+
 # setup the package
 setup(
-    name='v6_boilerplate_rdf_py',
+    name=PACKAGE_NAME,
     version="1.0.0",
     description='vantage6 boilerplate (RDF)',
     long_description=long_description,
@@ -29,7 +31,7 @@ setup(
         'sparqlwrapper',
     ],
     include_package_data=True,
-    package_data={'v6_boilerplate_rdf_py': ['query.sparql']}
+    package_data={PACKAGE_NAME: ['query.sparql']}
     # ,
     # extras_require={
     # },

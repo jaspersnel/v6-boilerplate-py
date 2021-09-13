@@ -60,7 +60,7 @@ def RPC_some_regular_method(data, *args, **kwargs):
 As the data for algorithms based on this boilerplate code are to come from a graph database, testing can (currently) only be done on a live vantage6 infrastructure with a graph database attached. Currently, a number of problems around this are present in the vantage6 ecosystem. Currently, the easiest way to set up an infrastructure is by setting up a local server and node following the vantage6 documentation. Then start a docker container for a graph database, and connect it to the node's docker network:
 
 ```bash
-docker connect vantage6-{nodename}-user-net {graphdb-docker-name}
+docker network connect vantage6-{nodename}-user-net {graphdb-docker-name}
 ```
 
 ## Publishing for real-world use

@@ -80,10 +80,10 @@ def docker_wrapper(module: str):
 
     info(f"Using query \n{query}")
 
-    info(f"Trying to execute query against {os.environ['SPARQL_ENDPOINT']}")
+    info(f"Trying to execute query against {os.environ['DATABASE_URI']}")
     
     # Helper for queries
-    qe = QueryEngine(os.environ['SPARQL_ENDPOINT'])
+    qe = QueryEngine(os.environ['DATABASE_URI'])
     db = qe.get_sparql_dataframe(query)
 
     # make the actual call to the method/function

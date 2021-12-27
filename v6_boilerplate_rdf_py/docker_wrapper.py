@@ -35,8 +35,8 @@ def sparql_wrapper(module: str):
     wrapper = SparqlDockerWrapper()
     wrapper.wrap_algorithm(module)
 
-def ttl_wrapper(module: str):
-    wrapper = SparqlDockerWrapper()
+def ttl_graph_wrapper(module: str):
+    wrapper = TTLGraphDockerWrapper()
     wrapper.wrap_algorithm(module)
 
 class WrapperBase(ABC):
@@ -138,6 +138,12 @@ class SparqlDockerWrapper(WrapperBase):
         result = sparql.query().convert().decode()
 
         return pandas.read_csv(io.StringIO(result))
+
+class TTLGraphDockerWrapper(WrapperBase):
+    @staticmethod
+    def load_data(database_uri, input_data):
+        return rdflib.Graph().parse(source=database_uri)
+
 
 def write_output(output_format, output, output_file):
     """

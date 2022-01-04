@@ -15,7 +15,7 @@ with open(path.join(here, 'README.md'), encoding='utf-8') as f:
 
 # setup the package
 setup(
-    name='v6-boilerplate-py',
+    name='v6_boilerplate_py',
     version="1.0.0",
     description='vantage6 biolerplate',
     long_description=long_description,

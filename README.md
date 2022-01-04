@@ -7,7 +7,7 @@
 
 --------------------
 
-# v6-boilerplate-py
+# v6_boilerplate_py
 This algoithm is part of the [vantage6](https://vantage6.ai) solution. Vantage6 allowes to execute computations on federated datasets. This repository provides a boilerplate for new algorithms.
 
 ## Setup
@@ -17,7 +17,7 @@ First clone the repository.
 git clone https://github.com/jaspersnel/v6-boilerplate-py
 ```
 
-Rename the contained v6-boilerplate-py directory to something that fits your algorithm, we use the convention `v6-{name}-{langauge}`. Then you can edit the following files:
+Rename the contained v6_boilerplate_py directory to something that fits your algorithm, we use the convention `v6_{name}_{langauge}`. Then you can edit the following files:
 
 ### Dockerfile
 Update the `ARG PKG_NAME=...` to the name of your algorithm (preferable the same as the directory name).

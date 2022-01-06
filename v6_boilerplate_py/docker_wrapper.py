@@ -39,6 +39,10 @@ def ttl_graph_wrapper(module: str):
     wrapper = TTLGraphDockerWrapper()
     wrapper.wrap_algorithm(module)
 
+def ttl_wrapper(module: str):
+    wrapper = TTLDockerWrapper()
+    wrapper.wrap_algorithm(module)
+
 class WrapperBase(ABC):
 
     def wrap_algorithm(self, module):

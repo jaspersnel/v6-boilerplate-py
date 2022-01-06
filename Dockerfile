@@ -13,4 +13,4 @@ ENV PKG_NAME=${PKG_NAME}
 
 # Tell docker to execute `docker_wrapper()` when the image is run.
 CMD python -c "from vantage6.tools.docker_wrapper import docker_wrapper; docker_wrapper('${PKG_NAME}')"
-#CMD python -c "from '${PKG_NAME}'.docker_wrapper import TTLDockerWrapper; TTLDockerWrapper('${PKG_NAME}')"
+#CMD python -c "from '${PKG_NAME}'.docker_wrapper import ttl_wrapper; ttl_wrapper('${PKG_NAME}')"
